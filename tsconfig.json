@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    // 严格模式配置
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": true,
+    // 未使用变量和参数检查
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // 函数返回值和 switch 检查
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    // 完整类型检查
+    "skipLibCheck": false,
+    // 严格可选属性
+    "exactOptionalPropertyTypes": true,
+    // 索引访问检查
+    "noUncheckedIndexedAccess": true,
+    // 其他配置
+    "noLib": false,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "allowJs": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "lib": ["dom", "esnext"],
+    "removeComments": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
+    }
+  },
+  "include": [
+    "apps/**/*.ts",
+    "apps/**/*.tsx",
+    "apps/**/*.vue",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "packages/**/*.vue",
+    "scripts/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.js"]
+}

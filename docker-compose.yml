@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Backend Service
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend
+    container_name: monorep-backend
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_ENV=production
+      - BACKEND_PORT=3001
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '--spider', 'http://localhost:3001/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend Service
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: frontend
+    container_name: monorep-frontend
+    ports:
+      - '80:80'
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # Development Environment
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: deps
+    container_name: monorep-dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+    command: pnpm dev
+    profiles:
+      - dev

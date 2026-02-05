@@ -1,0 +1,37 @@
+{
+  "name": "@monorep/utils",
+  "version": "1.0.0",
+  "description": "Shared utility functions for the monorepo",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "utils",
+    "utilities",
+    "shared",
+    "typescript"
+  ],
+  "author": "xu",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
